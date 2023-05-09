@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal Viewer</title>
+   
+    <!-- Plotly -->
+    <script src="{{ url_for('static', filename='plotly.main.js') }}"></script>
+    <!-- Js pdf -->
+    <script src="{{ url_for('static', filename='statistics.min.js') }}"></script>
+    
+    <!-- Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <script src="{{ url_for('static', filename='jspdf.umd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jspdf.plugin.autotable.js') }}"></script>
+
+    <div class="header">
+        <p class="title">Signal Viewer</p>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class=" header-container">
+                <p class="SubTitle">Signal 1</p>
+                <input type="file" name="file" id="file" class="inputfile" accept=".csv" /> 
+                <label for="file">select csv file</label>
+            </div>
+            <div id="chart" class="chart"></div>
+            <div class="controls">
+                <div class="main-controls">
+                    <button role="button" id="speeddown">speed up</button>
+                    <button role="button" id="play">Play</button>
+                    <button role="button" id="pause">Pause</button>
+                    <button role="button" id="speedup">speed down</button>
+                </div>   
+                <div class="sub-controls">
+                    <div class="color-group">
+                        <label for="color">Color</label>   
+                        <input type="color" name="color" id="color">    
+                    </div>
+                    <div class="file-group">
+                        <input type="text" id="title" />
+                        <button id="changeTitle">Change Title</button>
+                    </div>
+                    <button id="generate-pdf1" onclick="generate_pdf(1)" class="pdf-btn" role="button">Download pdf</button>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="link">
+            <label for="chkbox" style="font-size: larger;">Link</label>
+            <input type="checkbox" class="chkbox" id="chkbox">
+        </div>
+
+        <div class="container">
+            <div class="header-container">
+                <p class="SubTitle">Signal 2</p>
+                <input type="file" name="file" id="file2" class="inputfile" accept=".csv" />
+                <label for="file2">select csv file</label>
+            </div>
+            <div id="chart2" class="chart"></div>
+            <div class="controls">
+                <div class="main-controls">
+                    <button id="speeddown2">Speed up</button>
+                    <button id="play2">Play</button>
+                    <button id="pause2">Pause</button>
+                    <button id="speedup2">Speed down</button>
+                </div>
+                <div class="sub-controls">
+                    <div class="color-group">
+                        <label for="color2">Color</label>   
+                        <input type="color" name="color" id="color2">
+                    </div>
+                    <div class="file-group">
+                        <input type="text" id="title2" />
+                        <button id="changeTitle2">Change Title</button>
+                    </div>                
+                    <button id="generate-pdf2" onclick="generate_pdf(2)" class="pdf-btn">Download pdf</button>
+                </div>
+            </div>
+        </div>     
+    </div>
+</div class pdf>
+<button id="generate-pdf1" onclick="generate_pdf_linked()" class="pdf-btn" role="button">Download pdf</button>
+</div>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='generate-pdf.js') }}" ></script>
+    
+</body>
+
+</html>
